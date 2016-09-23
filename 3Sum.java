@@ -94,3 +94,6 @@ public ArrayList<ArrayList<Integer>> threeSum(int[] num) {
     return result;
 }
 }
+
+
+//http://siyang2leetcode.blogspot.com/2015/02/3sum.html

@@ -90,7 +90,7 @@ public class Solution {
     }
 }
 
-//my dfs
+//my dfs  O(N) O(N)
 /**
  * Definition for undirected graph.
  * class UndirectedGraphNode {

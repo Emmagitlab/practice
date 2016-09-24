@@ -89,3 +89,23 @@ public class Solution {
         return clone;
     }
 }
+
+
+public class Solution {
+    
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        HashMap<Integer, UndirectedGraphNode> map = new HashMap();
+        if (node == null) return null;
+
+        if (map.containsKey(node.label)) {
+            return map.get(node.label);
+        }
+        UndirectedGraphNode clone = new UndirectedGraphNode(node.label);
+        map.put(clone.label, clone);
+        for (UndirectedGraphNode neighbor : node.neighbors) {
+            clone.neighbors.add(cloneGraph(neighbor));
+        }
+        return clone;
+        
+    }
+}

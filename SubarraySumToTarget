@@ -1,6 +1,8 @@
 Idea:
 Sliding window, use two pointers, start and i. First accumulate A[i] with current sum so far. 
-If current sum is greater than the target, we shrink the window by moving the start pointer steps forward and subtract the  A[start] from current sum, until the current sum is less than the target value again. Last we need to check if current sum is equal to the target. 
+If current sum is greater than the target, we shrink the window by moving the start pointer steps 
+forward and subtract the  A[start] from current sum, until the current sum is less than the target value again.
+Last we need to check if current sum is equal to the target. 
 If yes, means we found one subarray of which the sum is equal to the target, and return true. 
 
 public class Solution {
@@ -40,7 +42,14 @@ public class Solution {
 Follow-up:
 How about there are negative numbers in the array?
 
-The idea is to use a hash table. For each A[i], we calculate the prefix sum, which is the sum of A[0] + ... + A[i] = X. We save the X + T into the hash table as the key. The value is the index i. If X + T is not in the hash table, we insert the key, value pair into the table. When we go to the point y, we calculate its prefix sum, and say it as Y. If Y is in the table, that means X + T = Y, i.e, Y - X = T. It means from i + 1 to j its sum equals to the target T. If Y is not in the hash table, add Y + T into the table. 
+The idea is to use a hash table. For each A[i], we calculate the prefix sum, which is the sum of A[0] + ... + A[i] = X.
+We save the X + T into the hash table as the key. The value is the index i.
+If X + T is not in the hash table, we insert the key, value pair into the table. 
+When we go to the point y, we calculate its prefix sum, and say it as Y.
+If Y is in the table, that means X + T = Y, i.e, Y - X = T. It means from i + 1 to j its sum equals to the target T. 
+If Y is not in the hash table, add Y + T into the table. 
+
+
 public class Solution {
     public void subArraySum(int[] A, int target) {
         if (A == null || A.length == 0) {

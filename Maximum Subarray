@@ -1,0 +1,39 @@
+
+
+Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
+the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+
+
+
+//divide and conquer
+
+
+
+public class Solution {
+    public int maxSubArray(int[] nums) {
+        int rightSum = Integer.MIN_VALUE;
+        int leftSum = Integer.MIN_VALUE;
+        int mid = (nums.length-1)/2;
+        rightSum = maxSubArray(nums,0,mid);
+        leftSum = maxSubArray(nums,mid+1,nums.length-1);
+     
+        return rightSum+leftSum;
+ 
+    }
+    
+    public int maxSubArray(int[] nums, int start, int end){
+        int subSum = Integer.MIN_VALUE;
+        int max = Integer.MIN_VALUE;
+        for(int i =start; i <=end; i++){
+            if(subSum <0) subSum= 0;
+            subSum += nums[i];
+            if(subSum > max){
+                max = subSum;
+            }
+        }
+        return max; 
+    }
+}

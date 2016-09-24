@@ -50,6 +50,18 @@ If Y is in the table, that means X + T = Y, i.e, Y - X = T. It means from i + 1 
 If Y is not in the hash table, add Y + T into the table. 
 
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication6;
+
+/**
+ *
+ * @author T440
+ */
+import java.util.*;
 public class Solution {
     public void subArraySum(int[] A, int target) {
         if (A == null || A.length == 0) {
@@ -57,7 +69,7 @@ public class Solution {
         }
          
         int curSum = 0;
-        Map<integer integer=""> map = new HashMap<integer integer="">();
+        HashMap<Integer, Integer> map = new HashMap<Integer,Integer>();
          
         for (int i = 0; i < A.length; i++) {
             curSum += A[i];

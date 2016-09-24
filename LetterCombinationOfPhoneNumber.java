@@ -10,7 +10,7 @@ Note:
 Although the above answer is in lexicographical order, your answer could be in any order you want.*/
 这道题目和求组合的思路差不多，比较简单。依次读取数字，然后把数字可以代表的字符依次加到当前的所有结果中，然后进入下一次迭代。假设总共有n个digit，每个digit可以代表k个字符，那么时间复杂度是O(k^n)，就是结果的数量，空间复杂度也是一样。代码如下： 代码如下： 
 
-// backtracking  假设总共有n个digit，每个digit可以代表k个字符，那么时间复杂度是O(k^n)，就是结果的数量,所以是O(3^n)空间复杂度：O(n)
+// backtracking  
 public class Solution {
     public ArrayList<String> letterCombinations(String digits) {
         ArrayList<String> result = new ArrayList<String>();

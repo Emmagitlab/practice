@@ -96,3 +96,98 @@ public class Solution {
 
 
 
+
+
+
+public class Solution {
+
+  public boolean subarraySum(int[] arr, int target) {
+
+    int last = 0;
+
+    int sum = 0;
+
+    for (int i = 0; i < arr.length; i++) {
+
+      sum += arr[i];. From 1point 3acres bbs
+
+      while (sum > target) {
+
+        sum -= arr[last++];
+
+      }
+
+      if (sum == target) {
+
+        return true;
+
+      }
+
+    }
+
+    return false;
+
+  }
+
+
+
+
+public boolean subarraySumNegtive(int[] arr, int target) {
+
+    for (int i = 1; i < arr.length; i++) {
+
+      arr[i] += arr[i - 1];
+
+    }
+
+    Set<Integer> s = new HashSet<>();
+
+    for (int i = 0; i < arr.length; i++) {
+
+      if (s.contains(arr[i] - target)) {
+
+        return true;
+
+      }
+
+      s.add(arr[i]);
+
+    }
+
+    return false;
+
+  }
+
+
+
+  public static void main(String[] args) {
+  Solution ss = new Solution();
+   System.out.println(ss.subarraySum(new int[] {1, 2, 3, 4, 5, 6}, 14));
+
+    System.out.println(ss.subarraySum(new int[] {1, 2, 3, 4, 5, 6}, 10));
+
+    System.out.println(ss.subarraySum(new int[] {1, 2, 3, 4, 5, 6}, 18));
+
+    System.out.println(ss.subarraySum(new int[] {1, 2, 3, 4, 5, 6}, 17));
+
+    System.out.println(ss.subarraySumNegtive(new int[] {1, -2, 3, -4, 5, -6}, 4));
+
+    System.out.println(ss.subarraySumNegtive(new int[] {1, -2, 3, -4, 5, -6}, -5));
+
+    System.out.println(ss.subarraySumNegtive(new int[] {1, -2, 3, -4, 5, -6}, 0));
+
+    return;
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

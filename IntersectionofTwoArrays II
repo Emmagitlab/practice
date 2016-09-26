@@ -1,18 +1,18 @@
-/*allow duplicate
+//allow duplicate
 
-Given two arrays, write a function to compute their intersection.
+//Given two arrays, write a function to compute their intersection.
 
-Example:
-Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+//Example:
+//Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
 
-Note:
-Each element in the result should appear as many times as it shows in both arrays.
-The result can be in any order.
-Follow up:
-What if the given array is already sorted? How would you optimize your algorithm?
-What if nums1's size is small compared to nums2's size? Which algorithm is better?
-What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once
-*/
+//Note:
+//Each element in the result should appear as many times as it shows in both arrays.
+//The result can be in any order.
+//Follow up:
+//What if the given array is already sorted? How would you optimize your algorithm?
+//What if nums1's size is small compared to nums2's size? Which algorithm is better?
+//What if elements of nums2 are stored on disk, and the memory is limited such that you cannot load all elements into the memory at once
+
 
 public class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
@@ -40,7 +40,7 @@ public class Solution {
     }
 }
 
-no duplicate
+//no duplicate
 
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
@@ -70,19 +70,19 @@ public class Solution {
 
 
 
-Intersection of Two Linked Lists
+//Intersection of Two Linked Lists
 
-Write a program to find the node at which the intersection of two singly linked lists begins.
+//Write a program to find the node at which the intersection of two singly linked lists begins.
 
 
-For example, the following two linked lists:
+//For example, the following two linked lists:
 
-A:          a1 → a2
-                   ↘
-                     c1 → c2 → c3
-                   ↗            
-B:     b1 → b2 → b3
-begin to intersect at node c1
+//A:          a1 → a2
+//                   ↘
+//                     c1 → c2 → c3
+//                   ↗            
+//B:     b1 → b2 → b3
+//begin to intersect at node c1
 
 public class Solution {
 public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

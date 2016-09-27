@@ -139,7 +139,7 @@ public class Solution {
     }
 }
 
-//mine
+//mine recursive
 
 public int numDecodings(String s) {
         if(s == null || s.length() == 0 || s == "0") return 0;

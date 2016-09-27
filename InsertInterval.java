@@ -71,3 +71,34 @@ if(!(intervåls.get(i).start > newIntervål.end || intervåls.get(i).end < newIn
     newIntervål.start = Math.min(newIntervål.start, intervåls.get(i).start);
     newIntervål.end =  Math.max(newIntervål.end, intervåls.get(i).end);
 }
+
+
+public class Solution {
+    public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+        List<Interval> res = new ArrayList<Interval>();
+		int len = intervals.size();
+		// binary search
+		boolean only_once = false;
+		Interval last = null, curr = null;
+		int i = 0;
+		while (i < len || !only_once) {
+			curr = i < len ? intervals.get(i) : newInterval;
+			if (!only_once && curr.start >= newInterval.start) {
+				only_once = true;
+				curr = newInterval;
+				i--;
+			}
+			if (res.size() == 0 || curr.start > last.end) {
+				res.add(curr);
+				last = curr;
+			}
+			else {
+				last.start = Math.min(last.start, curr.start);
+				last.end = Math.max(last.end, curr.end);
+			}
+			i++;
+		}
+		return res;
+        
+    }
+}

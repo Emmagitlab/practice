@@ -13,7 +13,7 @@ The read function will only be called once for each test case.*/
 
 // Discussion
 public int read(char[] buf, int n) {
-  boolean eof = false;      // end of file flag
+  boolean end = false;      // end of file flag
   int total = 0;            // total bytes have read
   char[] tmp = new char[4]; // temp buffer
 
@@ -21,7 +21,9 @@ public int read(char[] buf, int n) {
     int count = read4(tmp);
 
     // check if it's the end of the file
-    eof = count < 4;
+    if(count < 4){
+                end = true;
+            }
 
     // get the actual count
     count = Math.min(count, n - total);

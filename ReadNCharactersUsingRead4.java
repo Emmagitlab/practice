@@ -17,7 +17,7 @@ public int read(char[] buf, int n) {
   int total = 0;            // total bytes have read
   char[] tmp = new char[4]; // temp buffer
 
-  while (!eof && total < n) {
+  while (!end && total < n) {
     int count = read4(tmp);
 
     // check if it's the end of the file

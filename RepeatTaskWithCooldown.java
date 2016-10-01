@@ -1,7 +1,7 @@
 他给的例子：
 input: ABAABB
 cooldown: 2 (don't repeat characters in this unit of time)
-output: AB_AB
+output: AB_A__AB__B
 
 
 

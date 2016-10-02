@@ -1,0 +1,80 @@
+
+Given k sorted lists of O(n) integers each, implement an iterator that will yield all elements in sorted order。
+
+package heap;
+
+import java.util.*;
+
+class Wrapper{
+        public ArrayList<Integer> list;. visit 1point3acres.com for more.
+        public int index;
+        . visit 1point3acres.com for more.
+        public Wrapper(ArrayList<Integer> list, int index){
+                this.list = list;
+                this.index= index;. 1point3acres.com/bbs
+        }
+}
+
+public class MergeKList {
+        PriorityQueue<Wrapper> queue;
+        
+        public MergeKList(ArrayList<ArrayList<Integer>> lists){
+                queue = new PriorityQueue<Wrapper>(new Comparator<Wrapper>(){
+                        public int compare(Wrapper w1, Wrapper w2){
+                                return w1.list.get(w1.index) - w2.list.get(w2.index);
+                        }
+                });
+                
+                for(ArrayList<Integer> list: lists){
+                        Wrapper w = new Wrapper(list, 0);
+                        queue.offer(w);
+                }
+        }
+        
+        public boolean hasNext(){                
+                if(!queue.isEmpty())
+                        return true;
+                . visit 1point3acres.com for more.
+                return false;
+        }
+        
+        public Integer next(){
+                
+                Wrapper w = queue.poll();
+                
+                ArrayList<Integer> list = w.list;
+                int index = w.index;
+                
+                if(index < list.size()-1){
+                        w.index = index+1;
+                        queue.offer(w);
+                }
+                
+                return list.get(index);
+        }
+        -google 1point3acres
+        public static void main(String[] args) {
+                
+                ArrayList<Integer> l1 = new ArrayList<Integer>();
+                ArrayList<Integer> l2 = new ArrayList<Integer>();
+                ArrayList<Integer> l3 = new ArrayList<Integer>();
+                
+                l1.add(2);
+                l1.add(4);
+                l1.add(6);
+                l2.add(1);
+                l2.add(3);
+                l3.add(5);
+                
+                ArrayList<ArrayList<Integer>> lists = new ArrayList<ArrayList<Integer>>();
+                lists.add(l1);
+                lists.add(l2);
+                lists.add(l3);
+                
+                MergeKList mk = new MergeKList(lists);
+                while(mk.hasNext()){
+                        System.out.println(mk.next());
+                }
+        }
+
+}

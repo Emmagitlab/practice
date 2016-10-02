@@ -3,15 +3,28 @@ Given k sorted lists of O(n) integers each, implement an iterator that will yiel
 
 package heap;
 
-import java.util.*;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package javaapplication6;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+/**
+ *
+ * @author T440
+ */
 class Wrapper{
-        public ArrayList<Integer> list;. visit 1point3acres.com for more.
+        public ArrayList<Integer> list;
         public int index;
-        . visit 1point3acres.com for more.
+      
         public Wrapper(ArrayList<Integer> list, int index){
                 this.list = list;
-                this.index= index;. 1point3acres.com/bbs
+                this.index= index;
         }
 }
 
@@ -34,7 +47,7 @@ public class MergeKList {
         public boolean hasNext(){                
                 if(!queue.isEmpty())
                         return true;
-                . visit 1point3acres.com for more.
+           
                 return false;
         }
         
@@ -52,7 +65,7 @@ public class MergeKList {
                 
                 return list.get(index);
         }
-        -google 1point3acres
+       
         public static void main(String[] args) {
                 
                 ArrayList<Integer> l1 = new ArrayList<Integer>();

@@ -227,3 +227,29 @@ public void sortColors(int[] nums) {
         else {nums[i] = 2;}
     }
 }
+
+
+
+public class Solution {
+    public void sortColors(int[] nums) {
+        int l = 0;
+        int r = 0;
+        int m = 0;
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == 0){
+                nums[r++] = 2;
+                nums[m++] = 1;
+                nums[l++] = 0;
+            } else if(nums[i] == 1){
+                nums[r++] = 2;
+                nums[m++] = 1;
+            } else {
+                nums[r++] = 2;
+            }
+        
+            
+        }
+      
+    }
+  
+}

@@ -50,6 +50,14 @@ The solution set must not contain duplicate triplets.
             }
             return res;
         }
+        
+        public static void main(String[] args){
+            Solution test = new Solution();
+            int[] nums = {1,2,3,4,5,6};
+            
+            test.threeSum(nums);
+            
+        }
     }
 
 

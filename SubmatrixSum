@@ -1,8 +1,26 @@
+/*
+Given an integer matrix, find a submatrix where the sum of numbers is zero. 
+Your code should return the coordinate of the left-up and right-down number.
+
+Given matrix
+
+[
+  [1 ,5 ,7],
+  [3 ,7 ,-8],
+  [4 ,-8 ,9],
+]
+return [(1,1), (2,2)]
+
+time O(n^3)
+*/
+
+
+
 public class Solution {
-    /**.
+    /**
      * @param matrix an integer matrix
      * [url=home.php?mod=space&uid=160137]@return[/url] the coordinate of the left-up and right-down number
-     */. from: 1point3acres.com/bbs 
+     */
     public int[][] submatrixSum(int[][] matrix) {
         int[][] res = new int[][] {{0, 0}, {0, 0}};
         if (matrix != null && matrix.length > 0) {
@@ -22,12 +40,12 @@ public class Solution {
                             res = new int[][] {{i, map.get(sum) + 1}, {j, k}};
                             return res;
                         } else {
-                         map.put(sum, k);
+                            map.put(sum, k);
                         }
                     }
                 }
             }
-        } 
+        }
         return res;
     }
     private int getSum(int[][] matrix, int x1, int y1, int x2, int y2) {

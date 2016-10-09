@@ -25,3 +25,24 @@ public class Solution {
 		
 	}
 }
+
+
+
+public class Solution {
+    public int[] plusOne(int[] digits) {
+        int len = digits.length-1;
+        while(len >= 0 && digits[len] == 9){
+            digits[len] = 0;
+            len--;
+        }
+	// if len == -1, it should be 1 many 0 ,so just set restul[0] =1
+        if(len == -1){
+            int[] result = new int[digits.length+1];
+            result[0] = 1;
+            return result;
+        } else {
+            digits[len] += 1;
+            return digits;
+        }
+    }
+}

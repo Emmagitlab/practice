@@ -10,7 +10,6 @@ public class NaturalComparator implements Comparator<String> {
         NaturalComparator NaturalComparator = new NaturalComparator();
         System.out.println(NaturalComparator.compare("abc22a", "abc22z"));
         System.out.println(NaturalComparator.compare("abc23", "abz22"));
-        ;
         System.out.println(NaturalComparator.compare("abc", "999"));
         System.out.println(NaturalComparator.compare("abc22ac43", "abc22ac7"));
     }

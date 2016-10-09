@@ -50,29 +50,7 @@ public class Solution {
     }
 }
 
-// O1 Space
-public class Solution {
-     public int numDecodings(String s){
-        if(s == null || s.length() == 0 || s.charAt(0)=='0') return 0;
-        int r1 = 1;
-        int r2 = 1;
-        for(int i = 1; i < s.length();i++){
-            if(s.charAt(i) == '0') r1 = 0;
-            if(s.charAt(i-1) == '1'||s.charAt(i-1) =='2' && s.charAt(i)<='6'){
-                r1 = r2 +r1;
-                r2 = r1 - r2;
-            }else{
-                r2=r1;
-            }
-        }
-        return r1;
-    }
-    public static void main(String[] args){
-        Solution sol = new Solution();
-        String s1 = "12";
-        System.out.println(""+sol.numDecodings(s1));
-    }
-}
+
 
 
 // Recursive
@@ -162,26 +140,26 @@ public int numDecodings(String s) {
         return num >=1 && num <= 26;
     }
     
-// time O(n) space O(1)
-    public int numDecodings(String s){
-        if(s.length()==0) return 0;
-        int[] dp = new int[2];
-        dp[0]=1;
-        dp[1]=1;
-        
-        for(int i=0;i<s.length();i++){
-            int temp=0;
-            if(s.charAt(i)!='0')
-                temp+=dp[1];
-            if(i>0){
-                int a = Integer.parseInt(s.substring(i-1,i+1));
-                if(s.charAt(i-1)!='0' && a<=26 && a>=1)
-                    temp+=dp[0];
+public class Solution {
+     public int numDecodings(String s){
+        if(s == null || s.length() == 0 || s.charAt(0)=='0') return 0;
+        int r1 = 1;
+        int r2 = 1;
+        for(int i = 1; i < s.length();i++){
+            if(s.charAt(i) == '0') r1 = 0;
+            if(s.charAt(i-1) == '1'||s.charAt(i-1) =='2' && s.charAt(i)<='6'){
+                r1 = r2 +r1;
+                r2 = r1 - r2;
+            }else{
+                r2=r1;
             }
-            dp[0]=dp[1];
-            dp[1]=temp;
         }
-        
-        return dp[1];
+        return r1;
     }
+    public static void main(String[] args){
+        Solution sol = new Solution();
+        String s1 = "12";
+        System.out.println(""+sol.numDecodings(s1));
+    }
+}
 

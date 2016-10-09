@@ -32,25 +32,33 @@ public class Solution {
     }
 }
 
+// time O(n)
 
 public class Solution {
     public String countAndSay(int n) {
-        String oldString = "1";
-        while (--n > 0) {
-            StringBuilder sb = new StringBuilder();
-            char [] oldChars = oldString.toCharArray();
-
-            for (int i = 0; i < oldChars.length; i++) {
-                int count = 1;
-                while ((i+1) < oldChars.length && oldChars[i] == oldChars[i+1]) {
-                    count++;
-                    i++;
-                }
-                sb.append(String.valueOf(count) + String.valueOf(oldChars[i]));
-            }
-            oldString = sb.toString();
+        if(n < 1){
+            return null;
         }
-
-        return oldString;
+        String result = "1";
+        for(int i = 1; i < n; i++){
+           result = countAndSay(result); 
+        }
+        return result;
+    }
+    public String countAndSay(String str){
+        StringBuilder builder = new StringBuilder();
+        int count = 1;
+        for(int i = 1;i < str.length();i++){
+            if(str.charAt(i)==str.charAt(i-1)){
+                count++;
+            }else{
+                builder.append(count);
+                builder.append(str.charAt(i-1));
+                count =1;
+            }
+        }
+        builder.append(count);
+        builder.append(str.charAt(str.length()-1));
+        return builder.toString();
     }
 }

@@ -8,7 +8,7 @@
 
 //A solution is ["cats and dog", "cat sand dog"].
 
-//DP: time: O(n^2*k), space: O(nk), 假设k表示平均每个长度对应解的个数DFS: time: O(2^n), space: O(n)
+//DP: time: O(n^2*k), space: O(nk), 假设k表示平均每个长度对应解的个数DFS: time: O(n^2), space: O(n)
 
 
 //DP

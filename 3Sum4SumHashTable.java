@@ -33,6 +33,7 @@ public class Solution {
     }
 }
 
+// 3 SUM/4 SUM WITHOUT SORT WITH HASHMAP
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -55,15 +56,23 @@ public class Solution {
         Solution sol = new Solution();
         int[] num = {2, 4,2,1, 11, 15};
         int target = 9;
-        List<List<Integer>> result = sol.fourSum(num, target);
-        sol.threeSum(num);
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println(result.get(i).toString());
+        int target2 = 8;
+        List<List<Integer>> result3Sum = sol.threeSum(num, target2);
+         for (int i = 0; i < result3Sum.size(); i++) {
+            System.out.println(result3Sum.get(i).toString());
+        }
+        
+        
+        List<List<Integer>> result4Sum = sol.fourSum(num, target);
+
+        
+        for (int i = 0; i < result4Sum.size(); i++) {
+            System.out.println(result4Sum.get(i).toString());
         }
 
     }
 
-    public List<List<Integer>> threeSum(int[] num) {
+    public List<List<Integer>> threeSum(int[] num, int target) {
         int sz = num.length;
 
         HashMap<Integer, List<Integer>> m = new HashMap<Integer, List<Integer>>();
@@ -84,7 +93,7 @@ public class Solution {
 
         for (int i = 0; i < sz; ++i) {
             for (int j = i + 1; j < sz; ++j) {
-                int o = 0 - num[i] - num[j];
+                int o = target - num[i] - num[j];
                 if (m.containsKey(o)) {
                     List<Integer> l = m.get(o);
                     for (int idx : l) {
@@ -150,4 +159,3 @@ public class Solution {
         return ret;
     }
 }
-

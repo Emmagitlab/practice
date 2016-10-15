@@ -7,6 +7,14 @@ Return "100".*/
 
 
 public class Solution {
+    public static void main(String[] args){
+      Solution sol = new Solution();
+      String a = "11";
+      String b = "1";
+      System.out.println(sol.addBinary(a,b)+"");
+
+    
+    }
     public String addBinary(String a, String b) {
         StringBuilder sb = new StringBuilder();
         int i = a.length() - 1, j = b.length() -1, carry = 0;

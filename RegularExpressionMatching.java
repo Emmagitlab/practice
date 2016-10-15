@@ -142,7 +142,7 @@ public class Solution {
 // my
 public class Solution {
     public boolean isMatch(String s, String p) {
-        int m = s.length(), n = p.length();
+                int m = s.length(), n = p.length();
 		boolean[] res = new boolean[n + 1];
 		res[0] = true;
 

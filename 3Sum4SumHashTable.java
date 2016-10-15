@@ -87,7 +87,7 @@ public class Solution {
             } else {
                 ArrayList<Integer> l = new ArrayList<Integer>();
                 l.add(i);
-                m.put(val, l);
+                m.put(val, l);    // element as key, position as value
             }
         }
 

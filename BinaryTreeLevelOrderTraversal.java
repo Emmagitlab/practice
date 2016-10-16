@@ -50,12 +50,12 @@ public class Solution {
         List<List<Integer>> res = new ArrayList<List<Integer>>();
         if (root == null) return res;
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
-        queue.offer(root);
+        queue.offer(root);  //Returns: true if the element was added to this queue, else false
         while (!queue.isEmpty()) {
           int size = queue.size();
           List<Integer> temp = new ArrayList<Integer>();
           for (int i = 1; i <= size; i++) {
-            TreeNode node = queue.poll();
+            TreeNode node = queue.poll();  //Returns: the head of this queue, or null if this queue is empty
             temp.add(node.val);
             if (node.left != null) queue.offer(node.left);
             if (node.right != null) queue.offer(node.right);

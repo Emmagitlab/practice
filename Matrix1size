@@ -1,0 +1,74 @@
+
+1. 给定matrix，只有0和1，求1的连通size，连通只算上下左右，不算对角线。比如：
+0 1 0 0 1
+1 1 1 0 0. 鐣欏鐢宠璁哄潧-涓€浜╀笁鍒嗗湴
+1 0 0 0 1
+0 0 0 0 1                   返回 5， 1， 2
+反正不难，DFS的时候check那个点有没有被访问过就好了。不过过程中有点小问题，reference有点没处理好。后来想改，甚至说了不需要reference了，
+可以直接返回int值，不需要这么麻烦了
+。但是面试官说算了，时间不多了，他知道了。
+每次dfs之前都要check一下这个点是否被visit过，即每个点最多被visit一次；
+每次dfs最多向旁边看8个点，所以复杂度上限是8*m*n,也就是 O(m*n)啦～
+
+
+#include<iostream>
+#include<cstdio>
+#include<string>
+#include<string.h>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+const int maxn = 105;
+bool matrix[maxn][maxn];
+int m, n;
+bool visit[maxn][maxn];
+const int dir[8][2] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+int valid(int x,int y){
+        return x >= 0 && x < m && y >= 0 && y < n && matrix[x][y] == 1 && visit[x][y] == 0;
+}
+int dfs(int x,int y){
+        for(int i = 0; i < 8; ++i){
+                int tmpx = x + dir[i][0];
+                int tmpy = y + dir[i][1];
+                if(valid(tmpx, tmpy)){
+                        visit[tmpx][tmpy] = 1;
+                        dfs(tmpx, tmpy);
+                } 
+        }
+        return 0;
+}
+int main(){
+        while((scanf("%d%d",&m,&n))!=EOF){
+                if(m == 0){
+                        break;
+                }
+                int cnt = 0;
+                memset(matrix, 0, sizeof(matrix));
+                memset(visit, 0, sizeof(visit));
+                int i = 0, j = 0;
+                char mark;
+                for(i = 0; i < m; ++i){
+                        for(j = 0; j < n; ++j){
+                                cin >> mark;
+                                switch(mark){
+                                        case('*'):
+                                                matrix[i][j] = 0;
+                                                break;
+                                        case('@'):
+                                                matrix[i][j] = 1;
+                                                break;
+                                }
+                        }
+                }
+                for(i = 0; i < m; ++i){
+                        for(j = 0; j < n; ++j){. visit 1point3acres.com for more.
+                                if(!visit[i][j] && matrix[i][j] == 1){. From 1point 3acres bbs
+                                        ++cnt;
+                                        dfs(i, j);
+                                }
+                        }
+                }
+                printf("%d\n",cnt);
+        }
+        return 0;
+}        

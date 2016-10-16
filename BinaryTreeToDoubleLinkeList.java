@@ -99,7 +99,7 @@ public class Solution{
 3. 递归处理right， 找到右边最前面的节点，并且连接root到这个节点上。. 鍗氬鏈夋洿澶氭枃绔�,
 4. return。. 
 
- private static class TreeNode{
+class TreeNode{
         int val;
         TreeNode left;
         TreeNode right;
@@ -108,3 +108,60 @@ public class Solution{
             this.val = val;
         }
     }
+
+public class Solution {
+  
+       
+    public void solve(TreeNode root) {
+        if (root == null) {
+            return;}
+        convertToDoubleLinkedList(root);           
+    }
+    
+    public void convertToDoubleLinkedList(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            TreeNode left = root.left;
+            convertToDoubleLinkedList(left);
+            while (left.right != null) {
+                left = left.right;
+            }
+            left.right = root;
+            root.left = left;
+        }
+        if (root.right != null) {
+            TreeNode right = root.right;
+            convertToDoubleLinkedList(right);
+            while (right.left != null) {
+                right = right.left;
+            }
+            right.left = root;
+            root.right = right;
+        }
+    }
+    
+    public static void main (String[] args) {
+       Solution sol = new Solution();
+        TreeNode a = new TreeNode(1);
+        TreeNode b = new TreeNode(2);
+        TreeNode c = new TreeNode(5);
+        TreeNode d = new TreeNode(3);
+        TreeNode e = new TreeNode(4);
+        TreeNode f = new TreeNode(6);
+        a.left = b;
+        a.right = c;
+        b.left = d;
+        b.right = e;
+        c.right = f;
+        sol.solve(a);
+        while (a.left != null) {
+            a = a.left;
+        }
+        while (a != null) {
+            System.out.print(a.val + " ");
+            a = a.right;
+        }     
+    }
+}

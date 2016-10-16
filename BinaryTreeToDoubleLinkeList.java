@@ -102,12 +102,11 @@ public class Solution{
 public class SolutionConvert {
     public void solve(TreeNode root) {
         if (root == null) {
-            return;. 鐗涗汉浜戦泦,涓€浜╀笁鍒嗗湴
-        }. 鍥磋鎴戜滑@1point 3 acres
+            return;}
         convertToDoubleLinkedList(root);           
     }
     
-    public void convertToDoubleLinkedList(TreeNode root) {. 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+    public void convertToDoubleLinkedList(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -124,7 +123,7 @@ public class SolutionConvert {
             TreeNode right = root.right;
             convertToDoubleLinkedList(right);
             while (right.left != null) {
-                right = right.left;.鏈枃鍘熷垱鑷�1point3acres璁哄潧
+                right = right.left;
             }
             right.left = root;
             root.right = right;
@@ -150,6 +149,6 @@ public class SolutionConvert {
         while (a != null) {
             System.out.print(a.val + " ");
             a = a.right;
-        }      . 涓€浜�-涓夊垎-鍦帮紝鐙鍙戝竷
+        }     
     }
 }

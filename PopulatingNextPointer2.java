@@ -62,8 +62,35 @@ public class Solution {
     }
 }
 
+//update
+
 // O(1) BFS
-public void connect(TreeLinkNode root) {
+ class TreeLinkNode {
+       int val;
+      TreeLinkNode left, right, next;
+      TreeLinkNode(int x) { val = x; }
+  }
+public class Solution {
+  
+
+    public static void main(String[]  args){
+        Solution sol = new Solution();
+      
+        TreeLinkNode root = new TreeLinkNode(1);
+        root.left = new TreeLinkNode(2);
+        root.right = new TreeLinkNode(3);
+        root.left.left = new TreeLinkNode(4);
+        root.left.right = new TreeLinkNode(5);
+        root.right.left = new TreeLinkNode(7);
+      //  root.right.right = new TreeLinkNode(35);
+        sol.connect(root);
+       
+       
+      
+    
+    
+    }
+    public void connect(TreeLinkNode root) {
     TreeLinkNode queue = root;
     while (queue != null) {
         TreeLinkNode level = new TreeLinkNode(0);
@@ -77,30 +104,16 @@ public void connect(TreeLinkNode root) {
                 current.next = queue.right;
                 current = current.next;
             }
+           System.out.print(queue.val);
             queue = queue.next;
         }
+        System.out.print(queue);
         queue = level.next;
+     
     }
 }
-
-
-public void connect(TreeLinkNode root) {
-    if(root == null)
-        return;
-    TreeLinkNode dummy = new TreeLinkNode(0);
-    dummy.next = root;
-    while(dummy.next != null){
-        TreeLinkNode cur = dummy.next, pre = dummy;
-        dummy.next = null;
-        while(cur != null){
-            if(cur.left != null)
-                pre = pre.next = cur.left;
-            if(cur.right != null)
-                pre = pre.next = cur.right;
-            cur = cur.next;
-        }
-    }
 }
+
 
 
 // populating next right pointers in each node I

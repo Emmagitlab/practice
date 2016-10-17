@@ -54,7 +54,7 @@ public class Solution {
 }
 
 
-//preoder
+//preoder : Time Complexity: O(n)
 
 import java.io.*;
 import java.util.*;

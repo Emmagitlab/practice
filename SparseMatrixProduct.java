@@ -40,7 +40,8 @@ public class Solution {
     }
 }
 
-A sparse matrix can be represented as a sequence of rows, each of which is a sequence of (column-number, value) pairs of the nonzero values in the row.
+A sparse matrix can be represented as a sequence of rows, each of which is a sequence of (column-number, value)
+ pairs of the nonzero values in the row.
 
 // This Method
 public int[][] multiply(int[][] A, int[][] B) {

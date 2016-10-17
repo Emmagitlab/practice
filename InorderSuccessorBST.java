@@ -36,7 +36,7 @@ struct node * inOrderSuccessor(struct node *root, struct node *n)
 }
 
 
-
+// Emma
 public class Solution {
     public TreeNode inorderSuccessor(TreeNode root, TreeNode p) {
         if (root == null || p == null) return null;

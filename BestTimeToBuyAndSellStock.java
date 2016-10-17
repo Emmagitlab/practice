@@ -2,19 +2,18 @@
 
 If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.*/
 
-// My Suck Code
+// My Code
 public class Solution {
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length == 0) {
-            return 0;
+        if(prices==null || prices.length == 0) return 0;
+        int max = 0;
+        int min = prices[0];
+        for(int i =0; i < prices.length; i++){
+            min = Math.min(prices[i],min);
+            max = Math.max(max, prices[i]-min);
+        
         }
-        int localMin = Integer.MAX_VALUE;
-        int maxProfit = 0;
-        for (int i = 0; i < prices.length; i++) {
-            localMin = Math.min(prices[i], localMin);
-            maxProfit = Math.max(maxProfit, prices[i] - localMin);
-        }
-        return maxProfit;
+        return max;
     }
 }
 

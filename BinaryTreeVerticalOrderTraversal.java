@@ -118,6 +118,13 @@ public class Solution {
  *     TreeNode(int x) { val = x; }
  * }
  */
+BFS, put node, col into queue at the same time
+Every left child access col - 1 while right child col + 1
+This maps node into different col buckets
+Get col boundary min and max.
+Retrieve result from cols 
+
+
 public class Solution {
 public List<List<Integer>> verticalOrder(TreeNode root) {
 	List<List<Integer>> res = new ArrayList<>();

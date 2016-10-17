@@ -194,3 +194,55 @@ public class WordDictionary {
 // WordDictionary wordDictionary = new WordDictionary();
 // wordDictionary.addWord("word");
 // wordDictionary.search("pattern");
+
+
+//mine
+
+public class WordDictionary {
+    class TrieNode{
+        TrieNode[] children;
+        boolean isEndOfWord;
+        public TrieNode(){
+            this.children = new TrieNode[26];
+            this.isEndOfWord = false;
+        }
+    }
+    
+    TrieNode root = new TrieNode();
+
+    // Adds a word into the data structure.
+    public void addWord(String word) {
+        TrieNode  runner = root;
+        for(char c : word.toCharArray()){
+            if(runner.children[c-'a'] == null){
+                runner.children[c - 'a'] = new TrieNode();
+            }
+            runner = runner.children[c - 'a'];
+        }
+        runner.isEndOfWord = true;
+    }
+
+    // Returns if the word is in the data structure. A word could
+    // contain the dot character '.' to represent any one letter.
+    public boolean search(String word) {
+       return match(word.toCharArray(),0,root);
+    }
+    public boolean match(char[] word, int k, TrieNode node){
+         if(k == word.length) return node.isEndOfWord;
+        if(word[k] !='.'){
+            return node.children[word[k] - 'a'] != null && match(word,k+1,node.children[word[k] - 'a']);
+        } else {
+            for(int i = 0; i < node.children.length; i++){
+                if(node.children[i] != null){
+                    if(match(word, k+1, node.children[i])) return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
+// Your WordDictionary object will be instantiated and called as such:
+// WordDictionary wordDictionary = new WordDictionary();
+// wordDictionary.addWord("word");
+// wordDictionary.search("pattern");

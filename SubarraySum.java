@@ -1,7 +1,8 @@
 /*Given an integer array, find a subarray where the sum of numbers is zero. Your code should return the index of the first number and the index of the last number.
 
 */
-第一问，是否存在subarray,其数字和等于target, 用hashset保存从0到当前数字的和，再重新遍历一遍，如果有两个数字和只差等于target，那么这两个数字和中间的数字就是所求的子数组。
+第一问，是否存在subarray,其数字和等于target, 用hashset保存从0到当前数字的和，再重新遍历一遍，
+如果有两个数字和只差等于target，那么这两个数字和中间的数字就是所求的子数组。
 bool existSubarray(vector &data, int target) {
     unordered_set st;
     sum[0] = data[0];

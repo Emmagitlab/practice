@@ -1,4 +1,5 @@
-/*Given an integer matrix, find a submatrix where the sum of numbers is zero. Your code should return the coordinate of the left-up and right-down number.*/
+/*Given an integer matrix, find a submatrix where the sum of numbers is zero. Your code should return the coordinate 
+of the left-up and right-down number.*/
 
 O(N3) 解法
 public class Solution {

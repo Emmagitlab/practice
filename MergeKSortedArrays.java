@@ -1,4 +1,7 @@
-Other than exponential time complexity, a much better method is to use divide-and-conquer. Since merging two sorted lists is easy, we can recursively divide the k lists into two parts until there are no more than two lists. Then we can use a merge method similiar to the merge sort to merge the two lists together.
+Other than exponential time complexity, a much better method is to use divide-and-conquer. 
+Since merging two sorted lists is easy, we can recursively divide the k lists into two parts 
+until there are no more than two lists. Then we can use a merge method similiar to the merge s
+ort to merge the two lists together.
 
 Assume the longest list contains n elements, the time required for dividing and merging lists is T(k)=2T(k/2)+O(nk). According to the Master Theorem, the time complexity is O(nklogk). The space complexity of this algorithm is O(1).
 
@@ -42,7 +45,10 @@ vector mergeTwoVector(vector a, vector b) {
 }
 
 
-第二题也是LC但是略微神奇... 原题是Merge K Sorted Lists，但是面试官给的是Merge Sorted Arrays... 当时就傻乎乎的问了那size呢...然后还傻乎乎自言自语，最暴力的方法就是全部merge然后再sort咯，但是这样的话Sorted Array就没有意义了诶...面试官听到了就问我这样暴力解决的话时间复杂度是多少，我弱弱的回答说我知道Arrays.sort()是O(nlgn)。面试官表示嗯嗯这样太不好了，怎么改进。于是终于想起来了用Priority Queue。但是时间来不及了没有Code完，只是说了大概思路，面试官表示可以OK
+第二题也是LC但是略微神奇... 原题是Merge K Sorted Lists，但是面试官给的是Merge Sorted Arrays... 当时就傻乎乎的问了那size呢...
+然后还傻乎乎自言自语，最暴力的方法就是全部merge然后再sort咯，但是这样的话Sorted Array就没有意义了诶...
+	面试官听到了就问我这样暴力解决的话时间复杂度是多少，我弱弱的回答说我知道Arrays.sort()是O(nlgn)。
+	面试官表示嗯嗯这样太不好了，怎么改进。于是终于想起来了用Priority Queue。但是时间来不及了没有Code完，只是说了大概思路，面试官表示可以OK
 
 We can merge arrays in O(nk*Logk) time using Min Heap. Following is detailed algorithm.
 

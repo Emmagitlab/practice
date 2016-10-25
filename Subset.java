@@ -43,25 +43,27 @@ public class Solution {
 }
 
 
-//method1, iterative， 只在没duplicate的情况下好用！
 public class Solution {
-    public List<List<Integer>> subsets(int[] S) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(S == null || S.length == 0){
-            return res;
+    public List<List<Integer>> subsets(int[] nums) {
+        ArrayList<List<Integer>> result = new ArrayList<List<Integer>>();
+        if(nums == null || nums.length == 0) return result;
+        
+        List<Integer> item = new ArrayList<Integer>();
+        dfs(nums,result,item,0);
+        return result;
+
+    }
+    public void dfs(int[] nums, ArrayList<List<Integer>> result, List<Integer> item, int pos){
+        
+        result.add(new ArrayList<Integer>(item));
+        
+        for(int i = pos; i < nums.length; i++){
+            item.add(nums[i]);
+            dfs(nums,result,item,i+1);
+            item.remove(item.size()-1);
+            
         }
-        Arrays.sort(S);
-        List<Integer> path = new ArrayList<Integer>();
-        res.add(path);
-        for(int i = 0; i < S.length; i++){
-            int size = res.size();
-            for(int j = 0; j < size; j++){
-                List<Integer> sol = new ArrayList<Integer>(res.get(j));
-                sol.add(S[i]);
-                res.add(sol);
-            }
-        }
-        return res;
+        
     }
 }
 
@@ -91,25 +93,3 @@ public class Solution {
     }
 }
 
-//bit 解法，貌似有duplicate也不好使
-public class Solution {
-    public List<List<Integer>> subsets(int[] S) {
-        List<List<Integer>> res = new ArrayList<List<Integer>>();
-        if(S == null || S.length == 0){
-            return res;
-        }
-        Arrays.sort(S);
-        long total = (long)Math.pow(2, S.length);
-        for(long i = 0; i < total; i++){
-            List<Integer> sol = new ArrayList<Integer>();
-            long temp = i;
-            while(temp != 0){
-                int idx = Long.numberOfTrailingZeros(temp);
-                sol.add(S[idx]);
-                temp = temp ^ (1 << idx);
-            }
-            res.add(sol);
-        }
-        return res;
-    }
-}

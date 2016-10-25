@@ -12,25 +12,27 @@ Could you do it in-place without allocating extra space?
 
 
 public class Solution {
-    public void reverseWords(char[] s) {
-        if (s.length == 0) return;
-        reverse(s, 0, s.length-1);
-        int last = 0;
-        for (int i=0; i<s.length; i++) {
-            if (s[i] == ' ') {
-                reverse(s, last, i-1);
-                last = i + 1;
-            }
+public void reverseWords(char[] s) {
+    int i=0;
+    for(int j=0; j<s.length; j++){
+        if(s[j]==' '){
+            reverse(s, i, j-1);        
+            i=j+1;
         }
     }
-    
-    public void reverse(char[] s, int l, int r) {
-        while (l <= r) {
-            int temp = s[l];
-            s[l] = s[r];
-            s[r] = temp;
-            l++;
-            r--;
-        }
+ 
+    reverse(s, i, s.length-1);
+ 
+    reverse(s, 0, s.length-1);
+}
+ 
+public void reverse(char[] s, int i, int j){
+    while(i<j){
+        char temp = s[i];
+        s[i]=s[j];
+        s[j]=temp;
+        i++;
+        j--;
     }
+}
 }

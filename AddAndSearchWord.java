@@ -17,7 +17,10 @@ search("b..") -> true
 Note:
 You may assume that all words are consist of lowercase letters a-z.*/
 
-insert and search costs O(key_length), however the memory requirements of trie is O(ALPHABET_SIZE * key_length * N) where N is number of keys in trie. There are efficient representation of trie nodes (e.g. compressed trie, ternary search tree, etc.) to minimize memory requirements of trie.
+insert and search costs O(key_length), however the memory requirements of trie 
+is O(ALPHABET_SIZE * key_length * N) where N is number of keys in trie. There are efficient
+representation of trie nodes (e.g. compressed trie, ternary search tree, etc.) to minimize memory 
+requirements of trie.
 
 class Node { 
 Node getChildForLetter(letter) 
